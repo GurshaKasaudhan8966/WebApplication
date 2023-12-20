@@ -4,20 +4,28 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Navigation from './Components/Navigation';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import ViewContactDetails from './Components/Pages/ViewContactDetails';
+import AddContact from './Components/Pages/AddContact';
+import Nav from './Components/Nav';
+import Home from './Components/Home';
 
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-       <Navigation/>
-    </BrowserRouter>
-
-    </div>
+    <Router>
+      <Nav/>
+     <Home/>
+      <Routes>
+       <Route exact path="/addContact" element={<AddContact/>}/>
+        <Route exact path="/viewContact" element={<ViewContactDetails/>}/>
+       
+      </Routes>
+    </Router>
+  </div>
   );
 }
 
